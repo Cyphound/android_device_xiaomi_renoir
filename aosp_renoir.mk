@@ -11,12 +11,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from renoir device
 $(call inherit-product, device/xiaomi/renoir/device.mk)
 
-# Inherit some common PixelOS stuff.
+# Inherit some common Project-Elixir stuff.
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
-# PixelOS flags
+# Bootanimation
+TARGET_BOOT_ANIMATION_RES := 1080
+
+# Project-Elixir Official Stuff
+ELIXIR_MAINTAINER := Cyphound
+ELIXIR_BUILD_TYPE := OFFICIAL
 TARGET_SUPPORTS_QUICK_TAP := true
+TARGET_SUPPORTS_GOOGLE_RECORDER := true
+TARGET_INCLUDE_STOCK_ACORE := true
 TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
 
 # Device specific stuff
 PRODUCT_BRAND := Xiaomi
@@ -33,7 +41,5 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     TARGET_PRODUCT=$(PRODUCT_SYSTEM_NAME)
 
 BUILD_FINGERPRINT := Xiaomi/renoir/renoir:13/RKQ1.211001.001/V14.0.6.0.TKICNXM:user/release-keys
-
-TARGET_BOOT_ANIMATION_RES := 1080
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
